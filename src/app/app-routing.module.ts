@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './pagina/inicio/inicio.component';
 import { ContactoComponent } from './pagina/contacto/contacto.component';
+import { ProductosComponent } from './pagina/productos/productos.component';
 
 const routes: Routes = [
   {
@@ -20,8 +21,11 @@ const routes: Routes = [
   {
     path:"contacto",component:ContactoComponent
   },
-    {
+  {
     path:"inicio",component:InicioComponent
+  },
+  {
+    path:"productos",component:ProductosComponent
   },
   {
     path:"editar/:id",component:EditarComponent
