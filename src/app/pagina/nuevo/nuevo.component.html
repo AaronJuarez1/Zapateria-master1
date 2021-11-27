@@ -1,43 +1,42 @@
 <div class="row">
     <div clasS="col-4">
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img [src]="products[0].imagen" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
+                <h5 class="card-title">{{products[0].nombre}}</h5>
+                <p class="card-text">{{products[0].descripcion}}</p>
                 <div class="row justify-content-center">
                     <div class="col-6">
-                        <a href="#" class="btn btn-primary">Eliminar</a>
+                        <a href="#" class="btn btn-primary" (click)="eliminarProductos(products[0].id)">Eliminar</a>
                     </div>
                     <div class="col-6">
-                        <button type="button" class="btn btn-primary" data-bs-target="#exampleModal">Editar</button>
+                        <button type="button" class="btn btn-primary" data-bs-target="#exampleModal"
+                            (click)="editarProductos(products[0])">Editar</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModlalabel" aria-hidden="">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Productos</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModlalabel">Productos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="productsForm">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Nombre:</label>
+                        <input type="text" class="form-control" formControlName="nombre" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Descripcion:</label>
+                        <textarea class="form-control" formControlName="Descripcion" id="message-text"></textarea>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="modal-body">
-            <form [FormGroup]="ProductoForm">
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Nombre</label>
-                    <input type="text" class="form-control" formControlName="nombre" id="recipient-name">
-                </div>
-                <div class="mb-3">
-                    <label for="message-text" class="col-form-label">Descripcion</label>
-                    <textarea class="form-control" formControlName="Descripcion" id="message-text"></textarea>
-                </div>
-            </form>
-        </div>
-      </div>
     </div>
-  </div>
+</div>

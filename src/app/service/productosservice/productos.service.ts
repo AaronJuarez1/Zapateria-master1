@@ -39,6 +39,7 @@ export class ProductosService {
     return this.collection.add(datos)
   }
   editarProductos(id:string,data:Zapatos){
+    console.log(data);
     return this.collection.doc(id).update(data)
   }
   eliminarProductos(id:string){
