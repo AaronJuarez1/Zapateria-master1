@@ -2,17 +2,17 @@
   <table class="table" style="margin-top: 10px;">
     <thead>
       <tr>
+        <th scope="col">Imagen del producto</th>
         <th scope="col">Producto</th>
         <th scope="col">Precio</th>
-        <th scope="col">Imagen del producto</th>
-        <th scope="col">Información del producto</th>
+        <th scope="col">Opciones</th>
       </tr>
     </thead>
     <tbody>
       <tr class="table-primary" *ngFor="let item of productos">
         <th scope="row">{{item.producto}}</th>
-        <td>{{item.precio}}</td>
         <td >{{item.img}}</td>
+        <td>{{item.precio}}</td>
         <td>{{item.info}}</td>
         <td>
           <button type="button" class="btn btn-primary m-1" (click)="onGoToEditar(item.id)">Editar</button>

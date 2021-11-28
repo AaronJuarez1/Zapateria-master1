@@ -7,18 +7,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
+/* COMPONENTES */
+import { SobreComponent } from './pagina/sobre/sobre.component';
+import { PreguntasComponent } from './pagina/preguntas/preguntas.component';
+import { InicioComponent } from './pagina/inicio/inicio.component';
+import { ContactoComponent } from './pagina/contacto/contacto.component';
 import { ProductosComponent } from './pagina/productos/productos.component';
 import { ListComponent } from './pagina/list/list.component';
 import { NuevoComponent } from './pagina/nuevo/nuevo.component';
 import { DetalleComponent } from './pagina/detalle/detalle.component';
 import { EditarComponent } from './pagina/editar/editar.component';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { InicioComponent } from './pagina/inicio/inicio.component';
-import { ContactoComponent } from './pagina/contacto/contacto.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SobreComponent } from './pagina/sobre/sobre.component';
-import { PreguntasComponent } from './pagina/preguntas/preguntas.component';
+import { LoginComponent } from './auth/login/login.component';
+
+
 
 
 @NgModule({
@@ -33,12 +39,14 @@ import { PreguntasComponent } from './pagina/preguntas/preguntas.component';
     ContactoComponent,
     SobreComponent,
     PreguntasComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule
   ],

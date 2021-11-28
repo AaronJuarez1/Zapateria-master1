@@ -9,6 +9,7 @@ import { ProductosComponent } from './pagina/productos/productos.component';
 import { NuevoComponent } from './pagina/nuevo/nuevo.component';
 import { SobreComponent } from './pagina/sobre/sobre.component';
 import { PreguntasComponent } from './pagina/preguntas/preguntas.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,9 @@ const routes: Routes = [
   },
   {
     path:"nuevo",component:NuevoComponent
+  },
+  {
+    path:"login",component:LoginComponent
   },
   {
     path:"detalle",component:DetalleComponent

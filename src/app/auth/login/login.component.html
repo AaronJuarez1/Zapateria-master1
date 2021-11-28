@@ -1,0 +1,26 @@
+<div class="sidenav">
+    <div class="login-main-text ">
+       <h2>Iniciar Sesion</h2>
+       <p>La moda se desvanece<br> solo el estilo sigue siendo el mismo</p>
+    </div>
+ </div>
+ <div class="main">
+    <div class="col-md-6 col-sm-12">
+       <div class="login-form">
+          <form [formGroup]="formularioLogin">
+             <div class="form-group">
+                <label>Correo Electronico</label>
+                <input type="text" class="form-control" placeholder="EJemplo: Carlos423@hotmail.com" formControlName="username">
+             </div>
+             <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" class="form-control" placeholder="Contraseña" formControlName="password">
+             </div>
+             <div style="margin: 10px;">
+             <button type="submit" class="btn btn-black" (click)="iniciarSesion()">Iniciar Sesión</button>
+             
+            </div>
+          </form>
+       </div>
+    </div>
+ </div>
