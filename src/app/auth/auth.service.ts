@@ -19,15 +19,7 @@ export class AuthService {
   */
 
   login(username: string, password: string) {
-    return new Promise((resolve, rejects) => {
-      try {
-        this.auth.signInWithEmailAndPassword(username, password);
-        resolve("Iniciaste sesion correctamente");  
-      } catch (error) {
-        rejects(error);
-      }
-
-    })
+    return this.auth.signInWithEmailAndPassword(username, password);
   }
 
   /*
