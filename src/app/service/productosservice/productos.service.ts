@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Zapatos, Zapatosid } from 'src/app/interfaces/zapatos';
+import { AngularFireStorage, AngularFireStorageReference } from '@angular/fire/compat/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,13 @@ export class ProductosService {
 
   productos: Observable<Zapatosid[]>
   collection: AngularFirestoreCollection<Zapatos>
+  storageRef: AngularFireStorageReference;
 
-  constructor(private firestore:AngularFirestore) {
+  constructor(private firestore:AngularFirestore, private storage:AngularFireStorage) {
     // en las '' va el nombre de la coleccion
-    this.collection = firestore.collection('Zapateria');
-
+    this.collection = firestore.collection<Zapatosid>('Zapateria');
+    //se toma como referencia en storageref la carpeta izapatos 
+    this.storageRef = storage.ref('izapatos')
     // copiar y cambiar las interfaces
     this.productos =  this.collection.snapshotChanges().pipe(
       map(a => a.map(a => {
@@ -29,14 +32,21 @@ export class ProductosService {
     )
   }
 
-  obtenerProductos(){
+  obtenerProductos(): Observable<any>{
     return this.productos
   }
-  obtenerProducto(id:string){
-    return this.collection.doc(id).snapshotChanges()
+  obtenerProducto(id:string): Observable<any>{
+    return this.collection.doc(id).snapshotChanges().pipe(
+      map(a=>{
+        const id=a.payload.id;
+        const data=a.payload.data() as Zapatos;
+        return {id,...data}
+      })
+    )
   }
-  crearProductos(datos:Zapatos){
+  crearProductos(datos:Zapatos): Promise<any>{
     return this.collection.add(datos)
+
   }
   editarProductos(id:string,data:Zapatos){
     console.log(data);

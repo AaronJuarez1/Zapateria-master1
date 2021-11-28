@@ -41,5 +41,4 @@ export class LoginComponent implements OnInit {
       alert("Verifique si su Email es Valido");
     }
   }
-
 }
