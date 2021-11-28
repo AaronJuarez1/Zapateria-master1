@@ -7,6 +7,8 @@ import { InicioComponent } from './pagina/inicio/inicio.component';
 import { ContactoComponent } from './pagina/contacto/contacto.component';
 import { ProductosComponent } from './pagina/productos/productos.component';
 import { NuevoComponent } from './pagina/nuevo/nuevo.component';
+import { SobreComponent } from './pagina/sobre/sobre.component';
+import { PreguntasComponent } from './pagina/preguntas/preguntas.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,12 @@ const routes: Routes = [
   },
   {
     path:"detalle",component:DetalleComponent
+  },
+  {
+    path:"sobre",component:SobreComponent
+  },
+  {
+    path:"preguntas",component:PreguntasComponent
   },
   {
     path:"contacto",component:ContactoComponent

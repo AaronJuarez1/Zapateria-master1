@@ -8,6 +8,7 @@
     object-fit: cover;
 }
 .text{
-    display: flex;
     text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    
 }

@@ -17,6 +17,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { InicioComponent } from './pagina/inicio/inicio.component';
 import { ContactoComponent } from './pagina/contacto/contacto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SobreComponent } from './pagina/sobre/sobre.component';
+import { PreguntasComponent } from './pagina/preguntas/preguntas.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EditarComponent,
     InicioComponent,
     ContactoComponent,
+    SobreComponent,
+    PreguntasComponent,
   ],
   imports: [
     BrowserModule,
