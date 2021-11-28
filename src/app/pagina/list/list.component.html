@@ -5,7 +5,7 @@
         <th scope="col">Imagen del producto</th>
         <th scope="col">Producto</th>
         <th scope="col">Precio</th>
-        <th scope="col">Opciones</th>
+        <th scope="col">información</th>
       </tr>
     </thead>
     <tbody>
@@ -14,11 +14,6 @@
         <td >{{item.img}}</td>
         <td>{{item.precio}}</td>
         <td>{{item.info}}</td>
-        <td>
-          <button type="button" class="btn btn-primary m-1" (click)="onGoToEditar(item.id)">Editar</button>
-          <button type="button" class="btn btn-secondary m-1" (click)="onGoToInfo(item)">Info</button>
-          <button type="button" class="btn btn-danger m-1" (click)="onGoToEliminar(item)">Eliminar</button>
-        </td>
       </tr>
     </tbody>
   </table>
