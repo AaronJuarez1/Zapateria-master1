@@ -1,7 +1,7 @@
 import { ProductosService } from './../../service/productosservice/productos.service';
-import { NavigationExtras, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Zapatosid } from 'src/app/interfaces/zapatos';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list',
@@ -11,26 +11,18 @@ import { Zapatosid } from 'src/app/interfaces/zapatos';
 export class ListComponent implements OnInit {
 
   productos: Zapatosid[] = [];
-  constructor(private router: Router, private productosServices: ProductosService) {
+  constructor(private productosServices: ProductosService, private toastr: ToastrService) {
+  }
+
+  ngOnInit(): void {
     this.productosServices.obtenerProductos().subscribe(a => {
       this.productos = a;
     })
   }
 
-  ngOnInit(): void {
+  EliminarProducto(id: string){
+    this.productosServices.eliminarProductos(id).then(()=>{
+      this.toastr.error('El zapato fue eliminado Correctamente')
+    })
   }
-
-  onGoToEditar(id: string): void {
-    this.router.navigate(['editar', id]);
-  }
-
-
-  onGoToInfo(item: any): void {
-    this.router.navigate(['detalle']);
-  }
-
-  onGoToEliminar(item: any): void {
-    alert('Eliminado');
-  }
-
 }
