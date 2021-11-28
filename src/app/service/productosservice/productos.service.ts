@@ -46,10 +46,17 @@ export class ProductosService {
   }
   crearProductos(datos:Zapatos): Promise<any>{
     return this.collection.add(datos)
-
   }
+  crearImagen(img: any, nombreimg: string ){
+    //agrega una imagen en la base de dato
+     return this.storage.upload(`izapatos/${nombreimg}`, img);
+  }
+  urlImagen(nombreimg: string){
+    //detecta la url de la imagen y child busca la imagen en la carpeta 
+    return this.storageRef.child(nombreimg)
+  }
+
   editarProductos(id:string,data:Zapatos){
-    console.log(data);
     return this.collection.doc(id).update(data)
   }
   eliminarProductos(id:string){

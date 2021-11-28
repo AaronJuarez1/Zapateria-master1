@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ProductosService } from 'src/app/service/productosservice/productos.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Zapatos } from 'src/app/interfaces/zapatos';
 
 @Component({
   selector: 'app-nuevo',
@@ -13,36 +14,97 @@ import { ProductosService } from 'src/app/service/productosservice/productos.ser
 })
 export class NuevoComponent implements OnInit {
 
-  public products = [
-    {
-      id: "abcd",
-      nombre: "El bolson",
-      imagen: "https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2Fmassichiquito&psig=AOvVaw1WJiCeuCJPhOsxaebkxgBy&ust=1638137916143000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPCX07zJufQCFQAAAAAdAAAAABAD",
-      descripcion: "nashe nashe nashe",
-    }
-  ]
-  public productsForm: FormGroup
-  pUpload!: Observable<number | undefined>
-  urlImage!: Observable<string>
-  constructor(private fb: FormBuilder, private storage: AngularFireStorage) {
+  productsForm: FormGroup
+  submitted = false;
+  id: string | null;
+  link!: any;
+  refimg!: string;
+  titulo = 'Agregar Zapato';
+  //fb es form builder
+  //productos es por productos service
+  //arpute es una ruta
+  //Se le coloca el nombre a lo que estoy importando 
+
+  constructor(private fb: FormBuilder, private productos: ProductosService, private router: Router, private toastr: ToastrService, private aRoute: ActivatedRoute) {
+    //valida los productos dentro del form
     this.productsForm = fb.group({
       nombre: ['', Validators.required],
-      descripcion: ['', Validators.required]
+      descripcion: ['', Validators.required],
+      precio: ['', Validators.required]
+    });
+    // activa la ruta dentro del id
+    this.id = this.aRoute.snapshot.paramMap.get('id');
 
-    })
   }
 
   ngOnInit(): void {
+    this.editar()
   }
 
-  editarProductos(p: any) {
-    const { nombre, descripcion } = p
-    this.productsForm.setValue({nombre, descripcion})
+  AgregarEditarProducto() {
+    this.submitted = true;
+    if (this.productsForm.valid) {
+      if (this.id == null) {
+        // si la id es nula se agrega un producto
+        this.agregarProducto();
+      }
+      else {
+        //si existe la id te lleva a editarlo
+        this.editarProducto(this.id);
+      }
+
+    }
   }
-  eliminarProductos(idProduct:string){
-    let c=confirm ("Queres eliminar el producto")
-    if(c){
-      confirm("tas seguraso")
+  agregarProducto() {
+    const zapatos: Zapatos = {
+      producto: this.productsForm.value.nombre,
+      precio: this.productsForm.value.precio,
+      descripcion: this.productsForm.value.descripcion,
+      img: this.refimg
+    }
+
+    this.productos.crearProductos(zapatos).then(() => {
+      this.toastr.success('Su Zapato fue subido con exito')
+    })
+    this.router.navigate(['/list']);
+  }
+  async subirImagen(img: any) {
+    const archivo = img.target.files[0];
+    const nombrearchivo = archivo.name;
+    //tomamos la url de nombrearchivo y se pone en link
+    this.link = this.productos.urlImagen(nombrearchivo);
+    //al productservice se agrega el archivo y la url
+    await this.productos.crearImagen(archivo, nombrearchivo);
+    //el url se descarga mediante el link y esta data se convierte en la refecencia de imagen
+    await this.link.getDownloadURL().toPromise().then((data: string) => {
+      this.refimg = data;
+    })
+  }
+  //te edita el producto y lo modifica 
+  editarProducto(id: string) {
+    const zapatos: any = {
+      producto: this.productsForm.value.nombre,
+      precio: this.productsForm.value.precio,
+      descripcion: this.productsForm.value.descripcion
+    }
+    this.productos.editarProductos(id, zapatos).then(()=>{
+      this.toastr.info('El zapato fue editado correctamente')
+    })
+      this.router.navigate(['/list'])
+  }
+
+  //muestra lo que esta dentro del card para modificarlo
+  editar(){
+    if(this.id !== null){
+      this.titulo = 'Editar zapato'
+      this.productos.obtenerProducto(this.id).subscribe(data => {
+        console.log(data);
+        this.productsForm.patchValue({
+          nombre: data.producto,
+          precio: data.precio,
+          descripcion: data.info
+        })
+      })
     }
   }
 }
