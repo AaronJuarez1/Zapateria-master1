@@ -2,6 +2,7 @@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">{{titulo}}</h5>
+        <span *ngIf="submitted && productsForm.invalid">Todos los campos son obligatorios</span>
         <div [formGroup]="productsForm" (ngSubmit)="AgregarEditarProducto()">
             <div class="row">
                 <div class="col">
@@ -18,8 +19,8 @@
                 <input type="file" (change)="subirImagen($event)" accept="image/*" class="form-control">
             </div>
             <div>
-                <button type="button" class="btn btn-secondary">Secondary</button>
-                <button type="button" class="btn btn-success">Success</button>
+                <button type="text" class="btn btn-secondary" routerLink="/list">Cancelar</button>
+                <button type="submit" class="btn btn-success">Subir</button>
             </div>
         </div>
     </div>

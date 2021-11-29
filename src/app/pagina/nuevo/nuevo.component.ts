@@ -27,7 +27,7 @@ export class NuevoComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private productos: ProductosService, private router: Router, private toastr: ToastrService, private aRoute: ActivatedRoute) {
     //valida los productos dentro del form
-    this.productsForm = fb.group({
+    this.productsForm = this.fb.group({
       nombre: ['', Validators.required],
       descripcion: ['', Validators.required],
       precio: ['', Validators.required]

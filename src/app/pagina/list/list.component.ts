@@ -25,4 +25,8 @@ export class ListComponent implements OnInit {
       this.toastr.error('El zapato fue eliminado Correctamente')
     })
   }
+  mostrar(){
+    console.log(this.productos)
+
+  }
 }
