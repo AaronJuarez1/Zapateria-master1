@@ -3,7 +3,7 @@
         <div class="card-body">
             <h5 class="card-title" style="text-align: center;">{{titulo}}</h5>
             <span *ngIf="submitted && productsForm.invalid">Todos los campos son obligatorios</span>
-            <form class="productsForm" (ngSubmit)="AgregarEditarProducto()">
+            <form [formGroup]="productsForm" (ngSubmit)="AgregarEditarProducto()">
                 <div class="row">
                     <div class="col">
                         <input type="text" class="form-control nombre" formControlName="nombre" placeholder="Nombre">

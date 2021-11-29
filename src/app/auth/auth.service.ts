@@ -10,7 +10,7 @@ export class AuthService {
   public user!: Observable<any>;
 
   constructor(private auth: AngularFireAuth) {
-    this.user = this.auth.authState
+    this.user = auth.authState
   }
 
   /* 
@@ -28,11 +28,11 @@ export class AuthService {
   */
 
   LogOut() {
-    this.auth.signOut();
+    return this.auth.signOut();
   }
 
   // si logea o no 
   currentUser() {
-    this.auth.authState;
+    return this.auth.authState;
   }
 }

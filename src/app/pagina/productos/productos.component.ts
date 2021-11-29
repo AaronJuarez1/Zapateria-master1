@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { Component, OnInit } from '@angular/core';
-import {finalize} from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 import { AuthService } from "src/app/auth/auth.service";
 
 
@@ -12,12 +12,18 @@ import { AuthService } from "src/app/auth/auth.service";
 })
 export class ProductosComponent implements OnInit {
 
-  private conectado:boolean = false;
-  constructor(private auth: AuthService) {
+    user: any;
 
+  constructor(private auth: AuthService) {
+    this.auth.currentUser().subscribe(resp =>{
+      this.user = resp
+    })
   }
 
   ngOnInit(): void {
-  }
 
+  }
+  logOut(){
+    this.auth.LogOut()
+  }
 }
