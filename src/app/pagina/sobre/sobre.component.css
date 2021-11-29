@@ -163,3 +163,8 @@
   -webkit-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
+.cerca{
+  font-family: 'Roboto Mono', monospace;
+  text-align: center;
+  
+}
