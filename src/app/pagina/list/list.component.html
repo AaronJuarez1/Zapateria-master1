@@ -11,12 +11,16 @@
     <tbody>
       <tr class="table-primary" *ngFor="let item of productos">
         <td >{{item.img}}</td>
-        <td>{{item.producto}}</td>
-        <td>{{item.precio}}</td>
-        <td>{{item.descripcion}}</td>
-        <td>
+        <td><b>{{item.producto}}</b></td>
+        <td><b>${{item.precio}}</b></td>
+        <td><b>{{item.descripcion}}</b></td>
+        <td >
+          <div >
           <button [routerLink]="['/editar',item.id]" type="button" class="btn btn-secondary">Editar</button>
+        </div>
+        <div style="margin-top: 10px">
           <button (click)="EliminarProducto(item.id)" type="button" class="btn btn-success">Eliminar</button>
+        </div>
         </td>
       </tr>
     </tbody>

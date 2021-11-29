@@ -3,7 +3,7 @@
     <div class="card-body">
         <h5 class="card-title">{{titulo}}</h5>
         <span *ngIf="submitted && productsForm.invalid">Todos los campos son obligatorios</span>
-        <div [formGroup]="productsForm" (ngSubmit)="AgregarEditarProducto()">
+        <form [formGroup]="productsForm" (ngSubmit)="AgregarEditarProducto()">
             <div class="row">
                 <div class="col">
                     <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
@@ -22,6 +22,6 @@
                 <button type="text" class="btn btn-secondary" routerLink="/list">Cancelar</button>
                 <button type="submit" class="btn btn-success">Subir</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
