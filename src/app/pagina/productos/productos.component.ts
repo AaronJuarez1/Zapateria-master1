@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { Component, OnInit } from '@angular/core';
 import {finalize} from 'rxjs/operators';
+import { AuthService } from "src/app/auth/auth.service";
 
 
 @Component({
@@ -11,7 +12,8 @@ import {finalize} from 'rxjs/operators';
 })
 export class ProductosComponent implements OnInit {
 
-  constructor() {
+  private conectado:boolean = false;
+  constructor(private auth: AuthService) {
 
   }
 

@@ -59,7 +59,7 @@ export class NuevoComponent implements OnInit {
     const zapatos: Zapatos = {
       producto: this.productsForm.value.nombre,
       precio: this.productsForm.value.precio,
-      descripcion: this.productsForm.value.descripcion,
+      info: this.productsForm.value.descripcion,
       img: this.refimg
     }
 
@@ -85,7 +85,7 @@ export class NuevoComponent implements OnInit {
     const zapatos: any = {
       producto: this.productsForm.value.nombre,
       precio: this.productsForm.value.precio,
-      descripcion: this.productsForm.value.descripcion
+      info: this.productsForm.value.descripcion
     }
     this.productos.editarProductos(id, zapatos).then(()=>{
       this.toastr.info('El zapato fue editado correctamente')

@@ -10,10 +10,10 @@
     </thead>
     <tbody>
       <tr class="table-primary" *ngFor="let item of productos">
-        <td >{{item.img}}</td>
+        <td ><img class="tamano" src="{{item.img}}"></td>
         <td><b>{{item.producto}}</b></td>
         <td><b>${{item.precio}}</b></td>
-        <td><b>{{item.descripcion}}</b></td>
+        <td><b>{{item.info}}</b></td>
         <td >
           <div >
           <button [routerLink]="['/editar',item.id]" type="button" class="btn btn-secondary">Editar</button>

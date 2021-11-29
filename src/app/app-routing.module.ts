@@ -40,7 +40,7 @@ const routes: Routes = [
     path:"productos",component:ProductosComponent
   },
   {
-    path:"editar/:id",component:EditarComponent
+    path:"editar/:id",component:NuevoComponent
   },
   {
     path:'', redirectTo:'inicio', pathMatch:'full'

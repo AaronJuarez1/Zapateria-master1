@@ -6,5 +6,5 @@ export interface Zapatos {
   producto: string,
   precio: number,
   img: string,
-  descripcion: string,
+  info: string,
 }

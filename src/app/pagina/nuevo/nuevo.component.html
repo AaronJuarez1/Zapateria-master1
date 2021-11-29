@@ -1,27 +1,28 @@
-
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{titulo}}</h5>
-        <span *ngIf="submitted && productsForm.invalid">Todos los campos son obligatorios</span>
-        <form [formGroup]="productsForm" (ngSubmit)="AgregarEditarProducto()">
-            <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
+<div class="cuerpo">
+    <div class="card m-auto" style="width: 500px;">
+        <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">{{titulo}}</h5>
+            <span *ngIf="submitted && productsForm.invalid">Todos los campos son obligatorios</span>
+            <form class="productsForm" (ngSubmit)="AgregarEditarProducto()">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control nombre" formControlName="nombre" placeholder="Nombre">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="precio" placeholder="Precio">
+                    </div>
+                    <div class="row imagen descripcion">
+                        <input type="text" class="form-control" formControlName="descripcion" placeholder="Descripcion">
+                    </div>
+                    <div class="row imagen">
+                        <input type="file" (change)="subirImagen($event)" accept="image/*" class="form-control">
+                    </div>
+                    <div class="mt-5">
+                        <button type="text" class="btn btn-secondary button1" routerLink="/list">Cancelar</button>
+                        <button type="submit" class="btn btn-success button2">Subir</button>
+                    </div>
                 </div>
-                <div class="col">
-                    <input type="text" class="form-control"formControlName="precio" placeholder="Precio">
-                </div>
-            </div>
-            <div>
-                <input type="text" class="form-control" formControlName="descripcion" placeholder="Descripcion">
-            </div>
-            <div>
-                <input type="file" (change)="subirImagen($event)" accept="image/*" class="form-control">
-            </div>
-            <div>
-                <button type="text" class="btn btn-secondary" routerLink="/list">Cancelar</button>
-                <button type="submit" class="btn btn-success">Subir</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
