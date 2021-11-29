@@ -31,6 +31,7 @@ export class AuthService {
     this.auth.signOut();
   }
 
+  // si logea o no 
   currentUser() {
     this.auth.authState;
   }

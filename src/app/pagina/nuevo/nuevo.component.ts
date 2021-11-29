@@ -93,7 +93,7 @@ export class NuevoComponent implements OnInit {
       this.router.navigate(['/list'])
   }
 
-  //muestra lo que esta dentro del card para modificarlo
+  //muestra lo que esta en el list para modificarlo
   editar(){
     if(this.id !== null){
       this.titulo = 'Editar zapato'

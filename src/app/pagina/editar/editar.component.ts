@@ -14,6 +14,7 @@ export class EditarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   enviarProductos(id:string){
     this.router.navigate(['editar',id])
   }

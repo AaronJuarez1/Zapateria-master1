@@ -24,6 +24,7 @@ export class ProductosService {
     this.storageRef = storage.ref('izapatos')
     // copiar y cambiar las interfaces
     this.productos =  this.collection.snapshotChanges().pipe(
+      // obtiene la informacion de los productos
       map(a => a.map(a => {
         const data = a.payload.doc.data() as Zapatos;
         const id = a.payload.doc.id;

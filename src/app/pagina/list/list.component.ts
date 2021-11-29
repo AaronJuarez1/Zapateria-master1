@@ -10,16 +10,19 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListComponent implements OnInit {
 
+  
   productos: Zapatosid[] = [];
   constructor(private productosServices: ProductosService, private toastr: ToastrService) {
   }
 
+  // obtengo los productos de la base de datos 
   ngOnInit(): void {
     this.productosServices.obtenerProductos().subscribe(a => {
       this.productos = a;
     })
   }
 
+  // elima los productos desde la lista 
   EliminarProducto(id: string){
     this.productosServices.eliminarProductos(id).then(()=>{
       this.toastr.error('El zapato fue eliminado Correctamente')
