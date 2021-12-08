@@ -21,6 +21,7 @@ import { DetalleComponent } from './pagina/detalle/detalle.component';
 import { EditarComponent } from './pagina/editar/editar.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { CatalogoComponent } from './pagina/catalogo/catalogo.component';
 
 
 
@@ -38,6 +39,7 @@ import { ToastrModule } from 'ngx-toastr';
     SobreComponent,
     PreguntasComponent,
     LoginComponent,
+    CatalogoComponent,
   ],
   imports: [
     BrowserModule,

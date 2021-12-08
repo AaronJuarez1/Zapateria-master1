@@ -3,3 +3,9 @@
     width: 100px;
     object-fit: cover;
 }
+.lado{
+    margin-top: 5px;
+    width: 100%;
+    display:flex;
+    justify-content: flex-end;
+}
