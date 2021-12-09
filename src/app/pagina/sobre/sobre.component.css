@@ -166,5 +166,6 @@
 .cerca{
   font-family: 'Roboto Mono', monospace;
   text-align: center;
-  
+  margin-top: 10px;
+  font-size: 35px;
 }

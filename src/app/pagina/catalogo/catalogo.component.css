@@ -1,6 +1,6 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 #team {
-    background: #eee !important;
+    background: #685f5f !important;
 }
 
 .btn-primary:hover,
@@ -23,7 +23,8 @@ section {
 
 section .section-title {
     text-align: center;
-    color: #007b5e;
+    font-family: 'Unica One', cursive;
+    color: white;
     margin-bottom: 50px;
     text-transform: uppercase;
 }
