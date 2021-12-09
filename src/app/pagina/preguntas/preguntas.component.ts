@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
+import { Preguntasid } from 'src/app/interfaces/preguntas';
+import { PreguntasService } from 'src/app/service/preguntas.service';
+
+
 
 @Component({
   selector: 'app-preguntas',
@@ -7,7 +12,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreguntasComponent implements OnInit {
 
-  constructor() { }
+  preguntasf!: Preguntasid[]
+  user: any;
+
+  constructor(private preguntas: PreguntasService, private auth: AuthService) {
+    this.preguntas.obtenerPreguntas().subscribe(resp=>{
+      this.preguntasf = resp
+    })
+    this.auth.currentUser().subscribe(resp =>{
+      this.user = resp
+    })
+   }
 
   ngOnInit(): void {
   }

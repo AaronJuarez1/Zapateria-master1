@@ -2,7 +2,9 @@ body {
     background: #f4f4f4;
     display: flex;
   }
-  
+  .boton{
+    margin: 10px;
+  }
   #faq {
     max-width: 700px;
     margin: auto;

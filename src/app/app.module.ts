@@ -22,6 +22,7 @@ import { EditarComponent } from './pagina/editar/editar.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { CatalogoComponent } from './pagina/catalogo/catalogo.component';
+import { EditpreComponent } from './pagina/editpre/editpre.component';
 
 
 
@@ -40,6 +41,7 @@ import { CatalogoComponent } from './pagina/catalogo/catalogo.component';
     PreguntasComponent,
     LoginComponent,
     CatalogoComponent,
+    EditpreComponent,
   ],
   imports: [
     BrowserModule,

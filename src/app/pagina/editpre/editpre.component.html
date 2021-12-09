@@ -1,0 +1,19 @@
+<div class="cuerpo">
+    <div class="card m-auto" style="width: 500px;">
+        <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">Editar Pregunta</h5>
+            <form [formGroup]="preguntaForm" (ngSubmit)="EditarPregunta()">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control nombre" formControlName="pregunta"
+                            placeholder="Pregunta">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="respuesta" placeholder="Respuesta">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success button2">Subir</button>
+            </form>
+        </div>
+    </div>
+</div>

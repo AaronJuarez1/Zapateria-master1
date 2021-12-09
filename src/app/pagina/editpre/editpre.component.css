@@ -1,0 +1,19 @@
+.button2{
+    margin-left: 15px;
+    margin-top: 10px !important;
+}
+.cuerpo{
+    display: flex;
+    width: 100%;
+    height: 70vh;
+
+}
+
+.nombre{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.descripcion{
+    height: 20vh;
+}

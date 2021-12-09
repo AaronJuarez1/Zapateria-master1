@@ -11,6 +11,7 @@ import { SobreComponent } from './pagina/sobre/sobre.component';
 import { PreguntasComponent } from './pagina/preguntas/preguntas.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CatalogoComponent } from './pagina/catalogo/catalogo.component';
+import { EditpreComponent } from './pagina/editpre/editpre.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,9 @@ const routes: Routes = [
   },
   {
     path:"editar/:id",component:NuevoComponent
+  },
+  {
+    path:"editpre/:id",component:EditpreComponent
   },
   {
     path:'', redirectTo:'inicio', pathMatch:'full'
